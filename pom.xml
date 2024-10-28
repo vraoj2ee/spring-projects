@@ -12,7 +12,10 @@
 		<module>rest-api-xml-json-jakson</module>
 		<module>spring-data-jpa-mysql-crud</module>
 		<module>multi-datasource-config-example</module>
-		<module>mysql-testcontainers</module>
+		<module>spring-security-jwt</module>
+		<module>spring-boot3-jwt</module>
+		<module>spring-reactive-programming-webflux</module>
+<!--		<module>mysql-testcontainers</module>-->
 	</modules>
 
 	<dependencyManagement>
