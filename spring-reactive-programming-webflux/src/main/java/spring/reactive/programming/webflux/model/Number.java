@@ -1,23 +1,25 @@
 package spring.reactive.programming.webflux.model;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.relational.core.mapping.Table;
 
-@Document
+@Setter
+@Getter
+@Data
+@Table("numbers")
 public class Number {
     @Id
-    private String id;
+    private Long id;
     private int value;
 
     public Number(int value) {
         this.value = value;
     }
 
-    public String getId() {
-        return id;
-    }
+    // No-args constructor
+    public Number() {}
 
-    public int getValue() {
-        return value;
-    }
 }

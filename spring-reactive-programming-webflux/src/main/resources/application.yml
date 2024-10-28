@@ -1,24 +1,18 @@
-#spring.data.mongodb.uri=mongodb://localhost:27017/reactiveapp
 spring:
   datasource:
-    primary:
-      url: jdbc:h2:mem:testdb
-      username: sa
-      password: password
-      driver-class-name: org.h2.Driver
-      hikari:
-        pool-name: PrimaryPool
-    secondary:
-      url: jdbc:mysql://localhost:3306/secondarydb
-      username: root
-      password: password
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      hikari:
-        pool-name: SecondaryPool
-  jpa:
-    hibernate:
-      ddl-auto: update
-      show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+    url: jdbc:mysql://localhost:3306/secondarydb
+    username: root           # Change as per your MySQL setup
+    password: root   # Change as per your MySQL setup
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/secondarydb
+    username: root           # Change as per your MySQL setup
+    password: root   # Change as per your MySQL setup
+  data:
+    r2dbc:
+      repositories:
+        enabled: true
+
+# Additional configuration can go here
+logging:
+  level:
+    org.springframework: DEBUG  # Set log level to DEBUG for detailed logging
