@@ -1,6 +1,6 @@
 package spring.reactive.programming.webflux.controller;
 
-import spring.reactive.programming.webflux.model.Number;
+import spring.reactive.programming.webflux.entity.Number;
 import spring.reactive.programming.webflux.repository.NumberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

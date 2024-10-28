@@ -1,4 +1,4 @@
-package spring.reactive.programming.webflux.model;
+package spring.reactive.programming.webflux.entity;
 
 import lombok.Data;
 import lombok.Getter;
