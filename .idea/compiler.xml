@@ -2,12 +2,14 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-data-jpa-mysql-crud" />
         <module name="rest-api-xml-json-jakson" />
+        <module name="spring-reactive-programming-webflux" />
         <module name="com-multi-datasource-config-example" />
         <module name="spring-security-jwt" />
         <module name="spring-security-latest" />
@@ -19,6 +21,7 @@
       <module name="com-multi-datasource-config-example" options="-parameters" />
       <module name="rest-api-xml-json-jakson" options="-parameters" />
       <module name="spring-data-jpa-mysql-crud" options="-parameters" />
+      <module name="spring-reactive-programming-webflux" options="-parameters" />
       <module name="spring-security-jwt" options="-parameters" />
       <module name="spring-security-latest" options="-parameters" />
     </option>
