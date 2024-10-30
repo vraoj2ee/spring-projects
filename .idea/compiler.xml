@@ -7,12 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-data-jpa-mysql-crud" />
         <module name="rest-api-xml-json-jakson" />
-        <module name="spring-reactive-programming-webflux" />
         <module name="com-multi-datasource-config-example" />
         <module name="spring-security-jwt" />
         <module name="spring-security-latest" />
+        <module name="spring-data-jpa-mysql-crud" />
+        <module name="spring-reactive-programming-webflux" />
+        <module name="MyUtils" />
       </profile>
     </annotationProcessing>
   </component>
