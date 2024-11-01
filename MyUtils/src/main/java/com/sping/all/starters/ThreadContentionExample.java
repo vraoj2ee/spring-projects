@@ -20,7 +20,7 @@ public class ThreadContentionExample {
         Thread thread2 = new Thread(task);
         thread1.start();
         thread2.start();
-
+        //ThreadLocal
         try {
             thread1.join();
             thread2.join();

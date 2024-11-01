@@ -19,7 +19,6 @@ import java.util.function.Function;
 public class JwtService {
 
 
-    public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
 
 
     public String extractUsername(String token) {
@@ -58,7 +57,16 @@ public class JwtService {
         Map<String,Object> claims=new HashMap<>();
         return createToken(claims,userName);
     }
-
+    /*
+          Get username, pwd from postman request
+          Use Authentication, AuthenticationManager, UsernamePasswordAuthenticationToken, isAuthenticated() to authenticate given username pwd against DB
+          Then Create the token using JWTS builder
+          username (setSubject),
+          issuedAt,
+          expiration,
+          decode our secret string base64 decode then keyBytes then hmacShaKeyFor
+          SignatureAlgorithm.HS256
+     */
     private String createToken(Map<String, Object> claims, String userName) {
         return Jwts.builder()
                 .setClaims(claims)
@@ -68,8 +76,10 @@ public class JwtService {
                 .signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
     }
 
+    public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
     private Key getSignKey() {
         byte[] keyBytes= Decoders.BASE64.decode(SECRET);
         return Keys.hmacShaKeyFor(keyBytes);
     }
+
 }
