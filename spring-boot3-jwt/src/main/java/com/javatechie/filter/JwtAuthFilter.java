@@ -25,7 +25,17 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     @Autowired
     private UserInfoUserDetailsService userDetailsService;
-
+    /*  YTR
+        OncePerRequestFilter.doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+        get token from HttpServletRequest request header - Authorization
+        if it starts with "Bearer" remove it and get the token
+        get the username (getSubject) from the token
+        load the username from db then validate the username from token vs from DB
+        check token is expired?
+        then UserDetails, UsernamePasswordAuthenticationToken authToken using token sent by request
+        set this authToken in SecurityContextHolder
+        filterChain.doFilter(request, response);
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String authHeader = request.getHeader("Authorization");
@@ -46,4 +56,20 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         }
         filterChain.doFilter(request, response);
     }
+
+    /* to check does it have valid secret
+    private String mySecretKey = "your_secret_key"; // Use a strong key
+    public Claims validateToken(String token) {
+        try {
+            return Jwts.parser()
+                    .setSigningKey(mySecretKey)
+                    .parseClaimsJws(token)
+                    .getBody();
+        } catch (SignatureException e) {
+            throw new RuntimeException("Invalid JWT signature");
+        } catch (Exception e) {
+            throw new RuntimeException("Invalid JWT token");
+        }
+    }
+     **/
 }

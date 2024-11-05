@@ -57,13 +57,14 @@ public class JwtService {
         Map<String,Object> claims=new HashMap<>();
         return createToken(claims,userName);
     }
+
     /*
           Get username, pwd from postman request
           Use Authentication, AuthenticationManager, UsernamePasswordAuthenticationToken, isAuthenticated() to authenticate given username pwd against DB
           Then Create the token using JWTS builder
           username (setSubject),
           issuedAt,
-          expiration,
+          expiration, 3 or 6 months renewal
           decode our secret string base64 decode then keyBytes then hmacShaKeyFor
           SignatureAlgorithm.HS256
      */
